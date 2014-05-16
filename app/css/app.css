@@ -1,30 +1,85 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+/* Just using the lessc app.less > app.css compile command for now */
+html.medlr {
+  font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  height: auto;
 }
-
-.menu:before {
-  content: "[";
+html.medlr body {
+  min-height: 400px;
 }
-
-.menu:after {
-  content: "]";
+html.medlr body hr,
+html.medlr body h2 {
+  float: left;
+  width: 100%;
+  clear: both;
 }
-
-.menu > li {
-  display: inline;
+html.medlr body p#medlr-sing-now {
+  text-align: right;
+  float: left;
+  width: 100%;
+  border: 2px dotted #e1e1e1;
+  border-left: 0;
+  border-right: 0;
+  padding: 6px 0 15px 0;
+  margin: 20px 0;
 }
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
+html.medlr body ul.medlr-segments {
+  min-height: 120px;
+  margin: 0;
   padding: 0;
+  float: left;
+  clear: both;
+}
+html.medlr body ul.medlr-segments#medlr-timeline {
+  border: 2px dashed #e1e1e1;
+}
+html.medlr body ul.medlr-segments li {
+  padding: 5px;
+  width: 160px;
+  margin: 0 5px 5px 0;
+  border-radius: 3px;
+  float: left;
+  list-style: none;
+  min-height: 120px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: move;
+}
+html.medlr body ul.medlr-segments li.ui-sortable-placeholder {
+  display: none;
+}
+html.medlr body ul.medlr-segments li h3,
+html.medlr body ul.medlr-segments li h4,
+html.medlr body ul.medlr-segments li p {
+  line-height: 1;
+}
+html.medlr body ul.medlr-segments li h3 {
+  margin: 5px 0 0 0;
+  padding: 0;
+  font-size: 14px;
+}
+html.medlr body ul.medlr-segments li h4 {
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+html.medlr body ul.medlr-segments li p {
+  margin: 2px;
+  padding: 0;
+}
+html.medlr body ul.medlr-segments li.intro {
+  background: #39acef;
+  border: 1px solid #06799f;
+}
+html.medlr body ul.medlr-segments li.chorus {
+  background: #ff9840;
+  border: 1px solid #ff6690;
+}
+html.medlr body ul.medlr-segments li.verse {
+  background: #39e639;
+  border: 1px solid #00CC00;
+}
+html.medlr body ul.medlr-segments li.outro {
+  background: #ff7373;
+  border: 1px solid #ff4040;
 }

@@ -1,0 +1,95 @@
+/* Just using the lessc app.less > app.css compile command for now */
+
+html.medlr {
+
+    font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light",  Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 12px;
+    height: auto;
+    body {
+        
+        min-height: 400px;
+
+        hr, h2 {
+            float: left;
+            width: 100%;
+            clear: both;
+        }
+
+        p {
+           &#medlr-sing-now {
+                text-align: right;
+                float: left;
+                width: 100%;
+                border: 2px dotted #e1e1e1;
+                border-left: 0;
+                border-right: 0;
+                padding: 6px 0 15px 0;
+                margin: 20px 0;
+           } 
+        }
+        
+        ul.medlr-segments {
+            min-height: 120px;
+            margin: 0;
+            padding: 0;
+            float: left; 
+            clear: both;
+
+            &#medlr-timeline {
+                border: 2px dashed #e1e1e1;
+            }
+
+            li {
+                padding: 5px;
+                width: 160px;
+                margin: 0 5px 5px 0;
+                border-radius: 3px;
+                float: left;
+                list-style: none;
+                min-height: 120px;
+                font-size: 12px;
+                line-height: 1;
+                cursor: move;
+
+                &.ui-sortable-placeholder {
+                    display: none;
+                }
+
+                h3, h4, p {
+                    line-height: 1;
+                }
+                h3 {
+                    margin: 5px 0 0 0;
+                    padding: 0;
+                    font-size: 14px;
+                }
+                h4 {
+                    margin: 0 0 2px 0;
+                    padding: 0;
+                }
+                p {
+                    margin: 2px;
+                    padding: 0;
+                }
+
+                &.intro {
+                    background: #39acef;
+                    border: 1px solid #06799f;
+                }
+                &.chorus {
+                    background: #ff9840;
+                    border: 1px solid #ff6690;
+                }
+                &.verse {
+                    background: #39e639;
+                    border: 1px solid #00CC00;
+                }
+                &.outro {
+                    background: #ff7373;
+                    border: 1px solid #ff4040;
+                }
+            }
+        }
+    }
+}

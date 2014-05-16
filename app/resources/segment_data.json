@@ -1,0 +1,71 @@
+[ { "fields" : { "name" : "bens-medlr",
+        "segments" : [  ]
+      },
+    "model" : "medlr.medlrs",
+    "pk" : 1
+  },
+  { "fields" : { "end_time" : "18.00",
+        "segment_description" : 1,
+        "song" : 8437,
+        "start_time" : "0.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 3
+  },
+  { "fields" : { "end_time" : "71.00",
+        "segment_description" : 4,
+        "song" : 8437,
+        "start_time" : "42.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 4
+  },
+  { "fields" : { "end_time" : "28.00",
+        "segment_description" : 1,
+        "song" : 8438,
+        "start_time" : "0.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 5
+  },
+  { "fields" : { "end_time" : "82.00",
+        "segment_description" : 4,
+        "song" : 8438,
+        "start_time" : "54.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 6
+  },
+  { "fields" : { "end_time" : "19.00",
+        "segment_description" : 1,
+        "song" : 8439,
+        "start_time" : "0.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 7
+  },
+  { "fields" : { "end_time" : "55.00",
+        "segment_description" : 4,
+        "song" : 8439,
+        "start_time" : "37.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 8
+  },
+  { "fields" : { "end_time" : "119.00",
+        "segment_description" : 3,
+        "song" : 8438,
+        "start_time" : "82.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 9
+  },
+  { "fields" : { "end_time" : "221.00",
+        "segment_description" : 5,
+        "song" : 8438,
+        "start_time" : "207.00"
+      },
+    "model" : "medlr.medlrssongsegment",
+    "pk" : 10
+  }
+]
