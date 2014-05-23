@@ -1,6 +1,7 @@
 /* Just using the lessc app.less > app.css compile command for now */
 
 html.medlr {
+    border: 1px solid red;
 
     font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light",  Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
@@ -38,6 +39,8 @@ html.medlr {
 
             &#medlr-timeline {
                 border: 2px dashed #e1e1e1;
+                float: left; 
+                width: 580px;
             }
 
             li {
@@ -89,6 +92,22 @@ html.medlr {
                     background: #ff7373;
                     border: 1px solid #ff4040;
                 }
+            }
+        }
+
+        #player {
+            height: 230px;
+            width: 330px;
+            background: #000;
+            border-radius: 6px;
+            float: right;
+            overflow: hidden;
+
+            video {
+                // hide the watermark!
+                margin-top: -50px;
+                border-radius: 6px;
+                margin-left: 4px;
             }
         }
     }

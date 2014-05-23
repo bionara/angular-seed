@@ -1,13 +1,21 @@
-<html ng-app="medlrApp">
+<html ng-app="medlrApp" class="medlr">
 <head>
-  ...
+  <title>Medlr</title>
+  <link rel="StyleSheet" href="css/app.css" type="text/css"/>
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/controllers.js"></script>
+
+  <script src="js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
+
+
 </head>
 <body ng-controller="SegmentListCtrl">
 {{1+2}}
-  <ul>
-    <li ng-repeat="segment in segments">
+
+  <h2>Timeline</h2>
+  <ul class="medlr-segments" id="medlr-timeline">
+    <li ng-repeat="segment in segments" class="{{ segment.description }}" data-segment-id="{{ segment.id }}">
       <h3>{{ segment.song.title }}</h3>
       <h4>{{ segment.artist }}</h4>
       <p>
@@ -18,5 +26,32 @@
       <p>{{segment.snippet}}</p>
     </li>
   </ul>
+
+  <div id="player">
+    <video width="320" height="240" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p id="medlr-sing-now"><a class="btn" id="medlr-save" ng-click="singNowClicked()">Sing now!</a></p>
+
+  <hr />
+  <h2>Available segments</h2>
+  <ul class="medlr-segments" id="medlr-segment-list">
+    <li ng-repeat="segment in segments" class="{{ segment.description }}" data-segment-id="{{ segment.id }}">
+      <h3>{{ segment.song.title }}</h3>
+      <h4>{{ segment.artist }}</h4>
+      <p>
+          <strong>{{ segment.description }}</strong><br />
+          {{ segment.start_time }}:{{ segment.end_time }} ({{ segment.start_time + segment.end_time }}sec)
+      </p>
+      
+      <p>{{segment.snippet}}</p>
+    </li>
+  </ul>
+
+  <hr />
+  
+
 </body>
 </html>
