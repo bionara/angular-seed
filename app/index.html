@@ -15,37 +15,40 @@
 
   <h2>Timeline</h2>
   <ul class="medlr-segments" id="medlr-timeline">
-    <li ng-repeat="segment in segments" class="{{ segment.description }}" data-segment-id="{{ segment.id }}">
-      <h3>{{ segment.song.title }}</h3>
-      <h4>{{ segment.artist }}</h4>
+    <li ng-repeat="segment in segments" class="{{ segment.description }}" data-segment-id="{{ segment.id }}"
+      style="width:{{ (segment.end_time - segment.start_time) * 10 }}px"
+    >
+      <h3>{{ getSongObjectFromId(segment.songId).title }}</h3>
+      <h4>{{ getSongObjectFromId(segment.songId).artist }}</h4>
       <p>
           <strong>{{ segment.description }}</strong><br />
-          {{ segment.start_time }}:{{ segment.end_time }} ({{ segment.start_time + segment.end_time }}sec)
+          {{ segment.start_time }}:{{ segment.end_time }} ({{ segment.end_time - segment.start_time }}sec)
       </p>
-      
       <p>{{segment.snippet}}</p>
     </li>
   </ul>
 
   <div id="player">
-    <video width="320" height="240" controls>
+    <video width="320" height="240">
       <source src="" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-  <p id="medlr-sing-now"><a class="btn" id="medlr-save" ng-click="singNowClicked()">Sing now!</a></p>
+  <p id="medlr-sing-now">
+    <a class="btn" id="medlr-save" ng-click="singNowClicked()">Sing now!</a>
+    <a class="btn" id="medlr-pause" ng-click="pauseClicked()">{{pauseButtonText}}</a>
+  </p>
 
   <hr />
   <h2>Available segments</h2>
   <ul class="medlr-segments" id="medlr-segment-list">
     <li ng-repeat="segment in segments" class="{{ segment.description }}" data-segment-id="{{ segment.id }}">
-      <h3>{{ segment.song.title }}</h3>
-      <h4>{{ segment.artist }}</h4>
+      <h3>{{ getSongObjectFromId(segment.songId).title }}</h3>
+      <h4>{{ getSongObjectFromId(segment.songId).artist }}</h4>
       <p>
           <strong>{{ segment.description }}</strong><br />
           {{ segment.start_time }}:{{ segment.end_time }} ({{ segment.start_time + segment.end_time }}sec)
       </p>
-      
       <p>{{segment.snippet}}</p>
     </li>
   </ul>

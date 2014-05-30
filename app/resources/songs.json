@@ -1,0 +1,27 @@
+[
+	{  
+		"id": 8437,
+		"artist": "The Offspring",
+		"duration": 187,
+		"excerpt_end_time": 30,
+		"excerpt_start_time": 0,
+		"title": "Pretty Fly For A White Guy"
+	},
+	{ 
+		"id": 8438,
+		"artist": "The Offspring",
+		"duration": 221,
+		"excerpt_end_time": 30,
+		"excerpt_start_time": 0,
+		"title": "Original Prankster"
+	},
+	{ 
+		"id": 8439,
+		"artist": "The Offspring",
+		"duration": 167,
+		"excerpt_end_time": 30,
+		"excerpt_start_time": 0,
+		"explicit_content": false,
+		"title": "Why Don't You Get A Job"
+	}
+]

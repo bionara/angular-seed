@@ -86,6 +86,13 @@ html.medlr body ul.medlr-segments li.outro {
   background: #ff7373;
   border: 1px solid #ff4040;
 }
+html.medlr body ul.medlr-segments li.sang {
+  opacity: 0.5;
+}
+html.medlr body ul.medlr-segments li.active {
+  background: red;
+  border: 1px solid red;
+}
 html.medlr body #player {
   height: 230px;
   width: 330px;
