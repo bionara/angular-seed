@@ -44,6 +44,8 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
     $scope.video;
     $scope.currentSegment;
     $scope.orderedSegments = [];
+    $scope.fadeSpeed = 3000
+    $scope.startVolume = 0.5
     var timerVideoPositionCheck;
 
     // Function to convert the segments into a singable song
@@ -83,7 +85,6 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 
 	// the PLAYER function, which pretty much swaps videos in and out to simulate medley splicing
 	$scope.playVideo = function(){
-
 		if($scope.currentSegment >= $scope.orderedSegments.length){
 			return false;
 		}
@@ -112,24 +113,19 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
     	$scope.currentSegment++;
     	if($scope.currentSegment >= $scope.orderedSegments.length){
     		window.clearInterval(timerVideoPositionCheck);
-    		//alert('Finished!');
     	}else{
-
     		// The CROSSFADE! 
-
     		// Clone the video object so we can create the fade in    		
-    		fadeSpeed = 3000
-    		startVolume = 0.35
     		videoContainer = $('#player #video-container')
     		videoContainer.append($('video', videoContainer).clone())
     		// Fade inthe video, and its sound level too
-    		$('video', videoContainer).last().hide().fadeIn(fadeSpeed)
-    		$('video', videoContainer).last().get(0).volume = startVolume
-    		$('video', videoContainer).last().animate({volume: 1}, fadeSpeed);
+    		$('video', videoContainer).last().hide().fadeIn($scope.fadeSpeed)
+    		$('video', videoContainer).last().get(0).volume = $scope.startVolume
+    		$('video', videoContainer).last().animate({volume: 1}, $scope.fadeSpeed);
     		// Fade out the current video, and its sound level too, then remove it
     		oldVideo = $('video', videoContainer).first()
-    		oldVideo.animate({volume: 0}, fadeSpeed);
-    		oldVideo.fadeOut(fadeSpeed, function(){
+    		oldVideo.animate({volume: 0}, $scope.fadeSpeed);
+    		oldVideo.fadeOut($scope.fadeSpeed, function(){
     			oldVideo.remove()
     		})
     		$scope.playVideo();
@@ -137,10 +133,12 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 	}
 
 	// Check the current posiiton of the playing video in order to see if it's time for the next segment!
+	// Note that the next segment is started before current finihses for crossfade: $scope.fadeSpeed/2
 	$scope.checkVideoTime = function(){
 		segment = $scope.orderedSegments[$scope.currentSegment]
-		//console.log('check video time. Current:'+$scope.video.currentTime+', seg end:'+segment.end_time)
-		if($scope.video.currentTime >= segment.end_time){
+		fadeBuffer = ($scope.fadeSpeed/2000)
+		console.log('check video time. Current:'+$scope.video.currentTime+', seg end:'+segment.end_time+', with buffer:'+(segment.end_time-fadeBuffer))
+		if($scope.video.currentTime >= (segment.end_time-fadeBuffer)){
 			console.log('NEEEEXTT')
 			$scope.playNext();
 		}

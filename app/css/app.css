@@ -137,9 +137,15 @@ html.medlr body #available-segments-container ul {
   margin-left: 10px;
 }
 html.medlr body #player {
-  width: 330px;
-  background: #000;
+  width: 406px;
+  background: #1f1f1f;
   float: right;
+  border-radius: 6px;
+  padding: 10px;
+}
+html.medlr body #player h2 {
+  padding-left: 0;
+  margin-left: 0;
 }
 html.medlr body #player #video-container {
   height: 220px;
@@ -147,6 +153,7 @@ html.medlr body #player #video-container {
   overflow: hidden;
   border: 3px solid #ff20bd;
   position: relative;
+  background: black;
 }
 html.medlr body #player #video-container video {
   border-radius: 6px;

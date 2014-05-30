@@ -2,25 +2,33 @@
 	{ 
 		"id": "s1",
 		"start_time": 0.00,
-		"end_time": 2.00,
+		"end_time": 37.00,
 		"description": "Intro",
 		"songId": 8437,
-		"video": "resources/video/1.mp4"
+		"video": "resources/video/dont-stop.mp4"
 	},
 	{ 
 		"id": "s2",
-		"start_time": 40.00,
-		"end_time": 55.00,
+		"start_time": 37.00,
+		"end_time": 69.00,
 		"description": "Chorus",
 		"songId": 8437,
-		"video": "resources/video/2.mp4"
+		"video": "resources/video/dont-stop.mp4"
 	},
 	{ 
 		"id": "s3",
-		"start_time": 15.00,
-		"end_time": 22.00,
-		"description": "Intro",
+		"start_time": 43.00,
+		"end_time": 58.00,
+		"description": "Chorus",
 		"songId": 8438,
+		"video": "resources/video/mammamia.mp4"
+	},
+	{ 
+		"id": "s4",
+		"start_time": 15.00,
+		"end_time": 45.00,
+		"description": "Intro",
+		"songId": 8439,
 		"video": "resources/video/3.mp4"
 	}
 ]

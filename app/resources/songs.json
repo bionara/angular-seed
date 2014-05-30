@@ -1,19 +1,22 @@
 [
 	{  
 		"id": 8437,
-		"artist": "The Offspring",
+		"artist": "Queen",
 		"duration": 187,
 		"excerpt_end_time": 30,
 		"excerpt_start_time": 0,
-		"title": "Pretty Fly For A White Guy"
+		"title": "Don't Stop Me Now",
+		"video": "resources/video/dont-stop.mp4"
 	},
+	
 	{ 
 		"id": 8438,
-		"artist": "The Offspring",
+		"artist": "ABBA",
 		"duration": 221,
 		"excerpt_end_time": 30,
 		"excerpt_start_time": 0,
-		"title": "Original Prankster"
+		"title": "Mamma Mia",
+		"video": "resources/video/mamma-mia.mp4"
 	},
 	{ 
 		"id": 8439,
@@ -22,6 +25,7 @@
 		"excerpt_end_time": 30,
 		"excerpt_start_time": 0,
 		"explicit_content": false,
-		"title": "Why Don't You Get A Job"
+		"title": "Why Don't You Get A Job",
+		"video": "resources/video/dont-stop.mp4"
 	}
 ]
