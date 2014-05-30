@@ -1,6 +1,7 @@
 /* Just using the lessc app.less > app.css compile command for now */
 html.medlr {
-  border: 1px solid red;
+  background: black;
+  color: #fff;
   font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 12px;
@@ -8,6 +9,30 @@ html.medlr {
 }
 html.medlr body {
   min-height: 400px;
+  padding: 10px 30px;
+}
+html.medlr body header {
+  width: 100%;
+  display: block;
+}
+html.medlr body header #logo {
+  display: inline;
+}
+html.medlr body header h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bototm: 10px;
+  display: inline;
+}
+html.medlr body h1,
+html.medlr body h2 {
+  color: #ff20bd;
+  margin: 10px;
+  padding: 0;
+}
+html.medlr body h2 {
+  font-size: 22px;
+  font-weight: bold;
 }
 html.medlr body hr,
 html.medlr body h2 {
@@ -26,7 +51,7 @@ html.medlr body p#medlr-sing-now {
   margin: 20px 0;
 }
 html.medlr body ul.medlr-segments {
-  min-height: 120px;
+  min-height: 70px;
   margin: 0;
   padding: 0;
   float: left;
@@ -35,7 +60,7 @@ html.medlr body ul.medlr-segments {
 html.medlr body ul.medlr-segments#medlr-timeline {
   border: 2px dashed #e1e1e1;
   float: left;
-  width: 580px;
+  width: 450px;
 }
 html.medlr body ul.medlr-segments li {
   padding: 5px;
@@ -44,7 +69,7 @@ html.medlr body ul.medlr-segments li {
   border-radius: 3px;
   float: left;
   list-style: none;
-  min-height: 120px;
+  min-height: 70px;
   font-size: 12px;
   line-height: 1;
   cursor: move;
@@ -93,16 +118,40 @@ html.medlr body ul.medlr-segments li.active {
   background: red;
   border: 1px solid red;
 }
+html.medlr body #timeline-container {
+  float: left;
+  width: 450px;
+}
+html.medlr body #available-segments-container {
+  width: 450px;
+  padding-top: 30px;
+  height: 400px;
+  overflow: auto;
+}
+html.medlr body #available-segments-container h2,
+html.medlr body #available-segments-container ul {
+  float: none;
+  margin: 0;
+}
+html.medlr body #available-segments-container ul {
+  margin-left: 10px;
+}
 html.medlr body #player {
-  height: 230px;
   width: 330px;
   background: #000;
-  border-radius: 6px;
   float: right;
-  overflow: hidden;
 }
-html.medlr body #player video {
-  margin-top: -50px;
+html.medlr body #player #video-container {
+  height: 220px;
   border-radius: 6px;
-  margin-left: 4px;
+  overflow: hidden;
+  border: 3px solid #ff20bd;
+  position: relative;
+}
+html.medlr body #player #video-container video {
+  border-radius: 6px;
+  margin: -90px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

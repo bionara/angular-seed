@@ -1,7 +1,10 @@
 /* Just using the lessc app.less > app.css compile command for now */
 
+@available-sections-width: 200px;
+
 html.medlr {
-    border: 1px solid red;
+    background: black;
+    color: #fff;
 
     font-family: "Helvetica Neue", "HelveticaNeue-Light", "Helvetica Neue Light",  Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
@@ -10,6 +13,36 @@ html.medlr {
     body {
         
         min-height: 400px;
+        padding: 10px 30px;
+
+        &.available-segments-open {
+            
+        }
+
+        header {
+            width: 100%;
+            display: block;
+            #logo {
+                display: inline;
+            }
+            h1 {
+                font-size: 30px;
+                font-weight: bold;
+                padding-bototm: 10px;
+                display: inline;
+            }
+        }
+
+        h1, h2 {
+            color: #ff20bd;
+            margin: 10px;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+        }
 
         hr, h2 {
             float: left;
@@ -31,7 +64,7 @@ html.medlr {
         }
         
         ul.medlr-segments {
-            min-height: 120px;
+            min-height: 70px;
             margin: 0;
             padding: 0;
             float: left; 
@@ -40,7 +73,7 @@ html.medlr {
             &#medlr-timeline {
                 border: 2px dashed #e1e1e1;
                 float: left; 
-                width: 580px;
+                width: 450px;
             }
 
             li {
@@ -50,7 +83,7 @@ html.medlr {
                 border-radius: 3px;
                 float: left;
                 list-style: none;
-                min-height: 120px;
+                min-height: 70px;
                 font-size: 12px;
                 line-height: 1;
                 cursor: move;
@@ -102,19 +135,49 @@ html.medlr {
             }
         }
 
+        #timeline-container {
+            float: left;
+            width: 450px;
+        }
+
+        #available-segments-container {
+            width: 450px;
+            padding-top: 30px;
+            
+            height: 400px;
+            overflow: auto;
+
+            h2, ul {
+                float: none;
+                margin:0;
+            }
+            ul {
+                //display: none;
+                margin-left: 10px;
+            }
+        }
+
         #player {
-            height: 230px;
             width: 330px;
             background: #000;
-            border-radius: 6px;
             float: right;
-            overflow: hidden;
-
-            video {
-                // hide the watermark!
-                margin-top: -50px;
+            
+            #video-container {
+                height: 220px;
                 border-radius: 6px;
-                margin-left: 4px;
+                overflow: hidden;
+                border: 3px solid #ff20bd;
+                position: relative;
+
+                video {
+                    border-radius: 6px;
+                    margin: -90px 0;
+                    // position absolute for layered crossfade
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                }
             }
         }
     }

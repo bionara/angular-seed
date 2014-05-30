@@ -89,11 +89,11 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 		}
 		// Update current segment
 		segment = $scope.orderedSegments[$scope.currentSegment]
-		// Set the video
-		console.log(segment)
+		// Set the video 
 		videoFile = segment.video;
-		console.log('play video fileName:'+videoFile+', start:'+segment.start_time+', duration:'+(segment.end_time-segment.start_time));
-		video = $('#player video');
+		//console.log('play video fileName:'+videoFile+', start:'+segment.start_time+', duration:'+(segment.end_time-segment.start_time));
+		// There may be more than one video object due to crossfade, so grab the last one!
+		video = $('#player #video-container video').last();
 		video.attr('src', videoFile+'#t='+segment.start_time);		
 		// Set the video element for use in other functions
 		$scope.video = video.get(0)
@@ -106,7 +106,7 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 		$('#medlr-timeline li[data-segment-id="'+segment.id+'"]').addClass('active')
 	}
 
-	// to play the next video/segment
+	// to play the next video/segment. Handles the fadeout/fade in of video A (current) and B (next)
     $scope.playNext = function(){
     	// increment segment position
     	$scope.currentSegment++;
@@ -114,15 +114,32 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
     		window.clearInterval(timerVideoPositionCheck);
     		//alert('Finished!');
     	}else{
+
+    		// The CROSSFADE! 
+
+    		// Clone the video object so we can create the fade in    		
+    		fadeSpeed = 3000
+    		startVolume = 0.35
+    		videoContainer = $('#player #video-container')
+    		videoContainer.append($('video', videoContainer).clone())
+    		// Fade inthe video, and its sound level too
+    		$('video', videoContainer).last().hide().fadeIn(fadeSpeed)
+    		$('video', videoContainer).last().get(0).volume = startVolume
+    		$('video', videoContainer).last().animate({volume: 1}, fadeSpeed);
+    		// Fade out the current video, and its sound level too, then remove it
+    		oldVideo = $('video', videoContainer).first()
+    		oldVideo.animate({volume: 0}, fadeSpeed);
+    		oldVideo.fadeOut(fadeSpeed, function(){
+    			oldVideo.remove()
+    		})
     		$scope.playVideo();
     	}
 	}
 
 	// Check the current posiiton of the playing video in order to see if it's time for the next segment!
 	$scope.checkVideoTime = function(){
-		console.log('$scope.orderedSegments.length'+$scope.orderedSegments.length)
 		segment = $scope.orderedSegments[$scope.currentSegment]
-		console.log('check video time. Current:'+$scope.video.currentTime+', seg end:'+segment.end_time)
+		//console.log('check video time. Current:'+$scope.video.currentTime+', seg end:'+segment.end_time)
 		if($scope.video.currentTime >= segment.end_time){
 			console.log('NEEEEXTT')
 			$scope.playNext();
@@ -139,6 +156,7 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 		// none found
 		return false
 	};
+
 	// Grab a segment object form song json using a given ID
 	$scope.getSegmentObjectFromId = function(id){
 		for (var i=0; i<$scope.segments.length; i++){
@@ -147,6 +165,13 @@ medlrApp.controller('SegmentListCtrl', function ($scope, $http) {
 			}
 		}
 		return false
+	};
+
+	// Interface stuff
+	$scope.toggleAvailableSegments = function(){
+		return
+		$('#available-segments-container ul').toggle()
+		$('body').toggleClass('available-segments-open')
 	};
 
 

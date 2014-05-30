@@ -9,8 +9,8 @@
 	},
 	{ 
 		"id": "s2",
-		"start_time": 42.00,
-		"end_time": 44.50,
+		"start_time": 40.00,
+		"end_time": 55.00,
 		"description": "Chorus",
 		"songId": 8437,
 		"video": "resources/video/2.mp4"
@@ -18,7 +18,7 @@
 	{ 
 		"id": "s3",
 		"start_time": 15.00,
-		"end_time": 18.00,
+		"end_time": 22.00,
 		"description": "Intro",
 		"songId": 8438,
 		"video": "resources/video/3.mp4"
